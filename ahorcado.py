@@ -1,6 +1,7 @@
 import random
 
 
+nombreJugador = " "
 class juegoAhorcado:
     ESTADOS = [
         r"""
@@ -74,10 +75,14 @@ class juegoAhorcado:
     Frutas = 'PERA PLATANO UVA MANZANA MELOCOTON KIWI ALBARICOQUE CEREZA CIRUELA FRESA GRANADA HIGO LIMA LIMON MANDARINA NARANJA MELON MORA NISPERO PIÑA POMELO SANDIA '.split()
 
     def jugar(self):
+        global nombreJugador
 
         letrasIncorrectas = []
         letrasCorrectas = []
         secreto = random.choice(self.Frutas)
+
+        print("Dime tu nombre")
+        nombreJugador = input()
 
         while True:
             self.dibujar(letrasIncorrectas, letrasCorrectas, secreto)
@@ -96,7 +101,7 @@ class juegoAhorcado:
                 if salvado:
                     print(self.SALVADO[0])
                     print('¡Bien hecho! la palabra secreta es :', secreto)
-                    print('Has ganado!')
+                    print('Has ganado! ', nombreJugador)
                     break
             else:
                 letrasIncorrectas.append(letraDicha)
