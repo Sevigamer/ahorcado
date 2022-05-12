@@ -118,6 +118,8 @@ class juegoAhorcado:
         print()
 
         print('Letras incorrectas: ', end='')
+        print()
+        print("Tienes", self.intentos(letrasIncorrectas), "intentos")
         for letra in letrasIncorrectas:
             print(letra, end=' ')
         if len(letrasIncorrectas) == 0:
@@ -151,6 +153,10 @@ class juegoAhorcado:
             else:
                 return adivina
 
+    def intentos(self,letrasIncorrectas):
+        numIntentos = 6
+        numIntentos -= len(letrasIncorrectas)
+        return numIntentos
 
 if __name__ == '__main__':
     juego1 = juegoAhorcado()
